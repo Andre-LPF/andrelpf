@@ -14,8 +14,9 @@ import java.util.Vector;
  *
  * @author andre
  */
-public class MedicoDAO extends Conexao{
-    public String cadastrarMedico (Medico medico){
+public class MedicoDAO extends Conexao {
+
+    public String cadastrarMedico(Medico medico) {
         try {
             String sentenca;
             sentenca = "INSERT INTO MEDICO VALUES (NULL, '"
@@ -26,11 +27,11 @@ public class MedicoDAO extends Conexao{
             return e.getMessage();
         }
     }
-    
-    public String atualizarMedico (Medico medico){
+
+    public String atualizarMedico(Medico medico) {
         try {
             String sentenca;
-            sentenca = "UPDATE MEDICO SET NOME ='" + medico.getNome() 
+            sentenca = "UPDATE MEDICO SET NOME ='" + medico.getNome()
                     + "', ESPECIALIDADE = '" + medico.getEspecialidade()
                     + "', CRM = '" + medico.getCrm() + "', CPF = '" + medico.getCpf() + "'WHEREIDMEDICO";
             return this.atualizarBanco(sentenca);
@@ -38,8 +39,8 @@ public class MedicoDAO extends Conexao{
             return e.getMessage();
         }
     }
-    
-    public String excluirMedico (String medico){
+
+    public String excluirMedico(String medico) {
         try {
             String sentenca;
             sentenca = "DELETE FROM MEDICO WHERE IDMEDICO =" + medico;
@@ -48,16 +49,13 @@ public class MedicoDAO extends Conexao{
             return e.getMessage();
         }
     }
-    
-    public ArrayList listarMedico()
-    {
-        try 
-        {
+
+    public ArrayList listarMedico() {
+        try {
             ArrayList medicos = new ArrayList();
             String sentenca = "SELECT * FROM MEDICO ORDER BY NOME";
             ResultSet rs = this.getResultSet(sentenca);
-            while (rs.next())
-            {
+            while (rs.next()) {
                 Medico medico = new Medico();
                 medico.setIdmedico(rs.getInt("IDMEDICO"));
                 medico.setNome(rs.getString("NOME"));
@@ -65,17 +63,13 @@ public class MedicoDAO extends Conexao{
                 medico.setCrm(rs.getString("CRM"));
                 medico.setEspecialidade(rs.getString("ESPECIALIDADE"));
                 medicos.add(medico);
-                
+
             }
-            return medicos;          
-        } 
-        catch (Exception e) 
-        {
+            return medicos;
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-           return null;
+            return null;
         }
     }
-    
-    
-    
+
 }

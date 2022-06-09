@@ -56,7 +56,7 @@ CREATE TABLE `medico` (
   `nome` varchar(100) NOT NULL,
   `especialidade` varchar(100) NOT NULL,
   `crm` int NOT NULL,
-  `cpf` char(11) NOT NULL,
+  `cpf` char(14) NOT NULL,
   PRIMARY KEY (`idmedico`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `paciente`;
 CREATE TABLE `paciente` (
   `idpaciente` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
   `idade` int NOT NULL DEFAULT '10',
   PRIMARY KEY (`idpaciente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-07 23:23:09
+-- Dump completed on 2022-06-09  1:26:53
